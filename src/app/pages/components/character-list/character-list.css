@@ -1,0 +1,165 @@
+/* Contenedor principal de la sección */
+section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* Grid Responsivo: Se ajusta de 1 a 4 columnas según el tamaño de pantalla */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Tarjeta del personaje (Card) */
+.rm-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rm-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor de la imagen y el chip de estado */
+.rm-card__media {
+    position: relative;
+    height: 250px;
+}
+
+.rm-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chip de estado (Alive/Dead) */
+.rm-chip {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    background: #666; /* Default: Gray for unknown */
+    text-transform: uppercase;
+}
+
+.rm-chip--alive {
+    background: #55cc44; /* Verde para vivos */
+}
+
+/* Cuerpo de la tarjeta */
+.rm-card__body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.rm-card__title {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #202329;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Etiquetas (Pills) */
+.rm-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.rm-pill {
+    background: #f0f2f5;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    border: 1px solid #e0e0e0;
+}
+
+/* Lista de detalles (Origin/Location) */
+.rm-card__dl {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.rm-row {
+    margin-bottom: 0.5rem;
+}
+
+.rm-row dt {
+    color: #9e9e9e;
+    font-weight: 500;
+}
+
+.rm-row dd {
+    margin-left: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Botones y acciones */
+.rm-card__actions {
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.rm-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.rm-btn--primary {
+    background: #ff9800;
+    color: white;
+}
+
+.rm-btn:not(.rm-btn--primary) {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.rm-btn:hover {
+    opacity: 0.85;
+}
+
+/* Estado de carga */
+.loading-state {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff9800;
+    padding: 3rem;
+}

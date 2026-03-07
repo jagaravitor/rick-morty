@@ -1,0 +1,65 @@
+<div>
+    <section>
+        <h1>Character List</h1>
+
+        @if (characters) {
+            <div class="character-grid">
+                @for (character of characters.results; track character.id) {
+                    <article class="rm-card">
+                        <div class="rm-card__media">
+                            <img
+                                class="rm-card__img"
+                                [src]="character.image"
+                                [alt]="character.name"
+                                loading="lazy"
+                            />
+                            <span class="rm-chip" [class.rm-chip--alive]="character.status === 'Alive'">
+                                {{ character.status }}
+                            </span>
+                        </div>
+
+                        <div class="rm-card__body">
+                            <h3 class="rm-card__title" [title]="character.name">
+                                {{ character.name }}
+                            </h3>
+
+                            <div class="rm-card__meta">
+                                <span class="rm-pill">{{ character.species }}</span>
+                                <span class="rm-pill">{{ character.gender }}</span>
+                                <span class="rm-pill">Eps: {{ character.episode?.length || 0 }}</span>
+                            </div>
+
+                            <dl class="rm-card__dl">
+                                <div class="rm-row">
+                                    <dt>Origin</dt>
+                                    <dd>{{ character.origin?.name || 'Unknown' }}</dd>
+                                </div>
+                                <div class="rm-row">
+                                    <dt>Location</dt>
+                                    <dd>{{ character.location?.name || 'Unknown' }}</dd>
+                                </div>
+                            </dl>
+
+                            <div class="rm-card__actions">
+                                <button class="rm-btn rm-btn--primary" type="button">Ver detalle</button>
+                                <a class="rm-btn" 
+                                   [href]="character.url || '#'" 
+                                   aria-label="Abrir en API" 
+                                   target="_blank" 
+                                   rel="noopener">
+                                   Abrir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                } @empty {
+                    <p>No se encontraron personajes.</p>
+                }
+            </div>
+        } @else {
+            <div class="loading-container">
+                <p>Cargando personajes...</p>
+            </div>
+        }
+    </section>
+</div>
